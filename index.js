@@ -1,1 +1,2 @@
-exports.calculator = require('./lib/Calculator')
+exports.Calculator = require('./lib/Calculator')
+exports.TaxBandLoader = require('./lib/TaxBandLoader')

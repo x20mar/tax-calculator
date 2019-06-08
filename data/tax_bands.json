@@ -2,41 +2,105 @@
     {
         "tax_year": 2018,
         "personal_allowance": 11850,
+        "stage_count": 5,
         "tax_bands" : [
             {
-                "order" : 1,
+                "stage" : 1,
                 "name" : "Starter Rate",
                 "rate" : "19",
                 "from_gross_salary" : 0,
                 "to_gross_salary" : 2000
             },
             {
-                "order": 2,
+                "stage": 2,
                 "name": "Base Rate",
                 "rate": "20",
                 "from_gross_salary": 2001,
                 "to_gross_salary": 12150
             },
             {
-                "order": 3,
+                "stage": 3,
                 "name": "Intermediate Rate",
                 "rate": "21",
                 "from_gross_salary": 12151,
                 "to_gross_salary": 31580
             },
             {
-                "order": 4,
-                "name": "High Rate",
+                "stage": 4,
+                "name": "Higher Rate",
                 "rate": "40",
                 "from_gross_salary": 31581,
                 "to_gross_salary": 150000
             },
             {
-                "order": 5,
+                "stage": 5,
                 "name": "Top Rate",
                 "rate": "46",
                 "from_gross_salary": 150001,
                 "to_gross_salary": null
+            }
+        ]
+    },
+    {
+        "tax_year": 2017,
+        "personal_allowance": 11500,
+        "stage_count": 2,
+        "tax_bands": [
+            {
+                "stage": 1,
+                "name": "Base Rate",
+                "rate": "20",
+                "from_gross_salary": 0,
+                "to_gross_salary": 31500
+            },
+            {
+                "stage": 2,
+                "name": "Higher Rate",
+                "rate": "40",
+                "from_gross_salary": 31501,
+                "to_gross_salary": 150000
+            }
+        ]
+    },
+    {
+        "tax_year": 2016,
+        "personal_allowance": 11000,
+        "stage_count": 2,
+        "tax_bands": [
+            {
+                "stage": 1,
+                "name": "Base Rate",
+                "rate": "20",
+                "from_gross_salary": 0,
+                "to_gross_salary": 32000
+            },
+            {
+                "stage": 2,
+                "name": "Higher Rate",
+                "rate": "40",
+                "from_gross_salary": 32001,
+                "to_gross_salary": 150000
+            }
+        ]
+    },
+    {
+        "tax_year": 2015,
+        "personal_allowance": 10600,
+        "stage_count": 2,
+        "tax_bands": [
+            {
+                "stage": 1,
+                "name": "Base Rate",
+                "rate": "20",
+                "from_gross_salary": 0,
+                "to_gross_salary": 31785
+            },
+            {
+                "stage": 2,
+                "name": "Higher Rate",
+                "rate": "40",
+                "from_gross_salary": 31786,
+                "to_gross_salary": 150000
             }
         ]
     }
