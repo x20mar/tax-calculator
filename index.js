@@ -1,0 +1,1 @@
+exports.calculator = require('./lib/Calculator')

@@ -1,0 +1,43 @@
+[
+    {
+        "tax_year": 2018,
+        "personal_allowance": 11850,
+        "tax_bands" : [
+            {
+                "order" : 1,
+                "name" : "Starter Rate",
+                "rate" : "19",
+                "from_gross_salary" : 0,
+                "to_gross_salary" : 2000
+            },
+            {
+                "order": 2,
+                "name": "Base Rate",
+                "rate": "20",
+                "from_gross_salary": 2001,
+                "to_gross_salary": 12150
+            },
+            {
+                "order": 3,
+                "name": "Intermediate Rate",
+                "rate": "21",
+                "from_gross_salary": 12151,
+                "to_gross_salary": 31580
+            },
+            {
+                "order": 4,
+                "name": "High Rate",
+                "rate": "40",
+                "from_gross_salary": 31581,
+                "to_gross_salary": 150000
+            },
+            {
+                "order": 5,
+                "name": "Top Rate",
+                "rate": "46",
+                "from_gross_salary": 150001,
+                "to_gross_salary": null
+            }
+        ]
+    }
+]
