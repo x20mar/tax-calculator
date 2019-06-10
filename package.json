@@ -6,6 +6,7 @@
     "CalculateTax": "./bin/index.js"
   },
   "scripts": {
+    "start": "nodemon --exec babel-node ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "git+https://github.com/x20mar/ecs-tax-calculator.git",
@@ -18,5 +19,15 @@
   "dependencies": {
     "commander": "^2.20.0"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.4.4",
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "nodemon": "^1.19.1"
+  }
 }
