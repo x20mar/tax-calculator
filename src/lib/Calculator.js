@@ -53,6 +53,7 @@ class Calculator {
     }
 
     calcTaxBands() {
+        let running_tax_total = 0
         this.config.tax_bands.forEach( tb => {
             if (tb.to_gross_salary && this.taxableIncome >= tb.to_gross_salary) {
                 let band = {
@@ -60,14 +61,15 @@ class Calculator {
                     rate: tb.rate,
                     amount_taxed: tb.to_gross_salary - tb.from_gross_salary
                 }
+                running_tax_total += band.amount_taxed
                 band.sub_tax = (band.rate / 100) * band.amount_taxed
-                this.totalTaxDue = this.totalTaxDue + band.sub_tax
+                this.totalTaxDue += band.sub_tax
                 this.taxBandList.push(band)
-            } else if (tb.to_gross_salary && this.taxableIncome >= tb.from_gross_salary && this.taxableIncome <= tb.to_gross_salary) {
+            } else if (this.taxableIncome >= tb.from_gross_salary && (tb.to_gross_salary === null || this.taxableIncome <= tb.to_gross_salary)) {
                 let band = {
                     name: tb.name,
                     rate: tb.rate,
-                    amount_taxed: this.taxableIncome - tb.from_gross_salary
+                    amount_taxed: this.taxableIncome - running_tax_total
                 }
                 band.sub_tax = (band.rate / 100) * band.amount_taxed
                 this.totalTaxDue = this.totalTaxDue + band.sub_tax
@@ -85,7 +87,7 @@ class Calculator {
         output += `Taxable Income: ${Utils.formatCurrency(this.taxableIncome)}\n\n`
 
         this.taxBandList.forEach(band => {
-            output += `${band.name}: ${Utils.formatCurrency(band.amount_taxed)} @${band.rate}% = ${Utils.formatCurrency(band.sub_tax)}\n`
+            output += `${band.name}: ${Utils.formatCurrency(band.amount_taxed)} @ ${band.rate}% = ${Utils.formatCurrency(band.sub_tax)}\n`
         })
 
         output += `\nTotal Tax Due: ${Utils.formatCurrency(this.totalTaxDue)}\n`
