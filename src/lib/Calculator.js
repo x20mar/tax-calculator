@@ -1,6 +1,5 @@
 const TaxBandLoader = require('./TaxBandLoader')
-import InternalError from './errors'
-import * as Utils from './utils'
+const InternalError = require('./errors')
 
 class Calculator {
 
@@ -78,19 +77,28 @@ class Calculator {
         })
     }
 
+    formatCurrency(amount) {
+
+        const formatter = new Intl.NumberFormat('en-GB', {
+            style: 'currency',
+            currency: 'GBP'
+        })
+        return formatter.format(amount)
+    }
+
     writer() {
         let endTaxYear = this.taxYear + 1
 
         let output = `Tax Year: ${this.taxYear}-${endTaxYear}\n`
-        output += `Gross Salary: ${Utils.formatCurrency(this.grossIncome)}\n\n`
-        output += `Personal Allowance: ${Utils.formatCurrency(this.getPersonalAllowance())}\n\n`
-        output += `Taxable Income: ${Utils.formatCurrency(this.taxableIncome)}\n\n`
+        output += `Gross Salary: ${this.formatCurrency(this.grossIncome)}\n\n`
+        output += `Personal Allowance: ${this.formatCurrency(this.getPersonalAllowance())}\n\n`
+        output += `Taxable Income: ${this.formatCurrency(this.taxableIncome)}\n\n`
 
         this.taxBandList.forEach(band => {
-            output += `${band.name}: ${Utils.formatCurrency(band.amount_taxed)} @ ${band.rate}% = ${Utils.formatCurrency(band.sub_tax)}\n`
+            output += `${band.name}: ${this.formatCurrency(band.amount_taxed)} @ ${band.rate}% = ${this.formatCurrency(band.sub_tax)}\n`
         })
 
-        output += `\nTotal Tax Due: ${Utils.formatCurrency(this.totalTaxDue)}\n`
+        output += `\nTotal Tax Due: ${this.formatCurrency(this.totalTaxDue)}\n`
 
         console.log(output)
         process.exit(0)
