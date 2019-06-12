@@ -6,9 +6,8 @@
     "CalculateTax": "./bin/index.js"
   },
   "scripts": {
-    "start": "nodemon --exec babel-node ./src/index.js",
+    "start": "nodemon --exec ./src/index.js",
     "test": "jest",
-    "build": "babel src --out-dir ./dist --source-maps",
     "serve": "node ./dist/index.js",
     "lint": "eslint --ext .js ./src",
     "format": "eslint --ext .js ./src --fix"
@@ -25,13 +24,6 @@
   },
   "private": true,
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5",
-    "@babel/node": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
-    "@babel/register": "^7.4.4",
-    "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.8.0",
     "eslint": "^5.16.0",
     "jest": "^24.8.0",
     "nodemon": "^1.19.1"

@@ -22,8 +22,7 @@ class Calculator {
         this.loadConfigData()
         this.setTaxableIncome()
         this.calcTaxBands()
-        // console.log(this.config)
-        this.writer()
+        return this.writer()
     }
 
     validateInputs() {
@@ -49,6 +48,7 @@ class Calculator {
 
     setTaxableIncome() {
         this.taxableIncome = this.grossIncome - this.getPersonalAllowance()
+        return this.taxableIncome
     }
 
     calcTaxBands() {
@@ -75,6 +75,7 @@ class Calculator {
                 this.taxBandList.push(band)
             }
         })
+        return this.taxBandList
     }
 
     formatCurrency(amount) {
@@ -100,8 +101,7 @@ class Calculator {
 
         output += `\nTotal Tax Due: ${this.formatCurrency(this.totalTaxDue)}\n`
 
-        console.log(output)
-        process.exit(0)
+        return  output
     }
 
 }

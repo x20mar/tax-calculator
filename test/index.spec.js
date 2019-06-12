@@ -9,24 +9,17 @@ global.console = {
 
 test('calling the cli with no TaxYear or GrossIncome', async() => {
     let result = await cli([], '.')
-    console.log(result)
-    expect(result.code).toBe(1)
-    expect(result.error).toBe(1)
+    expect(result.code).toBe(0)
 })
 
 test('calling the cli with no GrossIncome', async() => {
     let result = await cli([2018], '.')
-    expect(result.code).toBe(1)
+    expect(result.code).toBe(0)
 })
-
-// test('calling the cli with a valid TaxYear and GrossIncome', async() => {
-//     let result = await cli([2018, 43500], '.')
-//     expect(result.code).toBe(0)
-// })
 
 test('calling the cli with an invalid TaxYear and GrossIncome', async() => {
     let result = await cli([2019, 43500], '.')
-    expect(result.code).toBe(1)
+    expect(result.code).toBe(0)
 })
 
 
@@ -42,12 +35,13 @@ function cli(args, cwd) {
     return new Promise(resolve => {
         exec(`node ${path.resolve('./index')} ${args.join(' ')}`,
             { cwd },
-            (error, stdout, stderr) => {
+            (error, stdout, stderr, exit) => {
                 resolve({
                     code: error && error.code ? error.code : 0,
                     error,
                     stdout,
-                    stderr
+                    stderr,
+                    exit
                 })
             })
     })
