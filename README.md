@@ -14,4 +14,6 @@ Tax Calculator assignment from ECS Digital
 1. Setup `Hello World` cli
 2. Develop Config file
 3. Write method of seperating salary into the correct bands (with the correct values)
-4. Create text UI wrapper with correct details
+4. Create text CLI wrapper with correct details
+5. Write Unit tests for cli
+6. Produce demoable Dockerfile
