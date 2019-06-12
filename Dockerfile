@@ -8,15 +8,11 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY package*.json ./
 
-RUN npm install
-RUN npm install -g ./
+# RUN npm install
+# If you are building your code for production
+RUN npm ci --only=production
 
 # Bundle app source
 COPY . .
 
-## Create system user, no pass, no shell, no home dir
-RUN adduser --system --no-create-home --group app
-RUN chown -R app /usr/src/app
-USER app
-
-CMD [ "npm", "start" ]
+RUN npm install -g ./
