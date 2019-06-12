@@ -17,3 +17,8 @@ Tax Calculator assignment from ECS Digital
 4. Create text CLI wrapper with correct details
 5. Write Unit tests for cli
 6. Produce demoable Dockerfile
+
+## Sequence Diagram
+
+![alt text](docs/ECS_Tax_Calculator_Design.png
+"Tax Calculator Sequence Diagram")
