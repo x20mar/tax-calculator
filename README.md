@@ -1,6 +1,6 @@
 # Tax-Calculator
 
-Tax Calculator assignment from ECS Digital
+Tax Calculator assignment
 
 ## Notes/Thoughts while working
 
